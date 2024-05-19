@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Cinzel", serif;
+}
+
+a,
+p,
+btn,
+input,
+link {
+  font-family: "Inter", sans-serif;
+}
+
+/* .active{
+  background-color: #fff;
+  color: #000;
+} */
