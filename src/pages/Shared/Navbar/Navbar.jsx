@@ -43,12 +43,14 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="mr-5">
+
+                {/* Cart */}
+                <Link to={'/dashboard/cart'} className="mr-5">
                     <button className="btn">
                         <FaCartPlus className="text-3xl text-[#D99904]"/>
                         <div className="badge badge-secondary p-3 text-lg">+{cart.length}</div>
                     </button>
-                </div>
+                </Link>
                 {
                     user ? <>
                         <div
