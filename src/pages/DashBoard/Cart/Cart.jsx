@@ -2,6 +2,7 @@ import { IoTrashBinOutline } from "react-icons/io5";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
     const [cart, refetch] = useCart();
@@ -41,7 +42,10 @@ const Cart = () => {
             <div className="flex items-center justify-between text-3xl font-semibold">
                 <h2>Total Items: {cart.length}</h2>
                 <h2>Total Price: ${totalPrice}</h2>
-                <button className="btn bg-[#BB8506] uppercase text-white">Pay</button>
+                {cart.length ? <Link to='/dashboard/payment'>
+                    <button className="btn bg-[#BB8506] uppercase text-white">Pay</button>
+                </Link> :
+                    <button disabled className="btn bg-[#BB8506] uppercase text-white">Pay</button>}
             </div>
 
             <div className="overflow-x-auto ">

@@ -60,7 +60,7 @@ const FoodCard = ({ item }) => {
             <figure className="">
                 <img src={image} alt="" className="w-full border-t" />
             </figure>
-            <p className="text-center font-bold bg-black text-[#BB8506] py-2 -mt-5">Price: {price}$</p>
+            <p className="text-center text-xl font-bold bg-gray-700 text-[#BB8506] py-2 -mt-5">Price: {price}$</p>
             <div className="card-body items-center text-center">
                 <h2 className="text-xl font-bold">{name}</h2>
                 <p>{recipe}</p>

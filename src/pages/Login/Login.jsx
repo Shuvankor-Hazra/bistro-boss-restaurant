@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true);
@@ -40,7 +41,7 @@ const Login = () => {
             console.log(result)
             // toast.success('Login successful')
             Swal.fire({
-                position: "Middle",
+                position: "center",
                 icon: "success",
                 title: "Login successful",
                 showConfirmButton: false,
@@ -61,12 +62,12 @@ const Login = () => {
                 <title>Bistro Boss | Login</title>
             </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse justify-around">
-                <div className="text-center lg:text-left w-full md:w-1/2">
+                <div className="text-center w-full md:w-1/2">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div className="card w-full md:w-1/2 shadow-2xl bg-base-100">
-                    <form onSubmit={handleLogin} className="card-body">
+                <div className="card card-body w-full md:w-1/2 shadow-2xl bg-base-100">
+                    <form onSubmit={handleLogin} className="card-body ">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -93,12 +94,15 @@ const Login = () => {
                             {/* TODO : Apply 'disabled/false' for re captcha*/}
                             <input disabled={false} className="btn btn-outline border-0 border-b-4 border-[#BB8506] bg-[#D1A054B3] uppercase" type="submit" value='Login' />
                         </div>
-                        <div className='text-center font-semibold'>
+                        <div className='text-center font-semibold mt-5'>
                             <Link to={'/signUp'} className='font-semibold text-[#D1A054] underline'>New here? Create a New Account</Link>
+                            <div className="divider"></div>
                             <p>Or sign in with</p>
                         </div>
-
                     </form>
+                    <div  className="px-8">
+                    <SocialLogin />
+                    </div>
                 </div>
             </div>
         </div>

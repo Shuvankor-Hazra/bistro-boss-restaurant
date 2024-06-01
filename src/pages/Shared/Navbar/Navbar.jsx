@@ -4,16 +4,23 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import { FaCartPlus } from "react-icons/fa";
 import useCart from "../../../Hooks/useCart";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [cart] = useCart();
+    const [isAdmin] = useAdmin();
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/menu'>Our Menu</NavLink></li>
         <li><NavLink to='/order/salads'>Order Food</NavLink></li>
-        <li><NavLink to='/secret'>Secret</NavLink></li>
+        {
+            user && isAdmin && <li><NavLink to='/dashboard/adminHome'>Dashboard</NavLink></li>
+        }
+        {
+            user && !isAdmin && <li><NavLink to='/dashboard/userHome'>Dashboard</NavLink></li>
+        }
     </>
 
     const handleLogOut = () => {
@@ -47,7 +54,7 @@ const Navbar = () => {
                 {/* Cart */}
                 <Link to={'/dashboard/cart'} className="mr-5">
                     <button className="btn">
-                        <FaCartPlus className="text-3xl text-[#D99904]"/>
+                        <FaCartPlus className="text-3xl text-[#D99904]" />
                         <div className="badge badge-secondary p-3 text-lg">+{cart.length}</div>
                     </button>
                 </Link>
